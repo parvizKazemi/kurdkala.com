@@ -1,0 +1,1 @@
+# kurdkala.com
