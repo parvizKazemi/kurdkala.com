@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
+
     <meta name="author" content="">
     <title>Blank</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -13,18 +14,39 @@
     <link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
+	<script src="jquery-1.12.2.min.js"></script>
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
+
     <![endif]-->       
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+	<script>
+		$(document).ready(function(){
+			$("#deletButton1").click(function(){
+				$("#item1").fadeOut();
+
+			});
+			$("#deletButton2").click(function(){
+				$("#item2").fadeOut();
+
+			});
+			$("#deletButton3").click(function(){
+				$("#item3").fadeOut();
+
+			});
+		});
+	</script>
+
 </head><!--/head-->
 
 <body >
+
 <header id="header"><!--header-->
 	<div class="header_top"><!--header_top-->
 
@@ -163,43 +185,245 @@
 
 </header><!--/header-->
 	
-<section id="form"><!--form-->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-1">
+<section id="cart_items">
 
-					<div class="login-form" dir="rtl"><!--login form-->
-						<h2>به حساب خود وارد شوید</h2>
-						<form action="#" dir="rtl"  method="post">
-							<input type="text"  placeholder="  نام ..."  />
-							<input type="email" placeholder="  ایمیل ..." />
-							<span>
-								<input type="checkbox" class="checkbox"> 
-								مرا به خاطر بسپار
-							</span>
-							<button type="submit" class="btn btn-default">ورود</button>
-							<button type="button" class="btn btn-danger" style="background-color:#ff1228">ورود با گوگل </button>
+	<div class="container">
 
-						</form>
-					</div><!--/login form-->
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#home">سبد خرید</a></li>
+			<li><a data-toggle="tab" href="#menu1">پیگیری سفارش</a></li>
+
+		</ul>
+
+		<div class="tab-content" >
+			<div id="home" class="tab-pane fade in active">
+
+
+				<div class="table-responsive cart_info" >
+					<table class="table table-condensed">
+						<thead>
+						<tr class="cart_menu">
+							<td class="image">کالا</td>
+							<td class="description"></td>
+							<td class="price">قیمت</td>
+							<td class="quantity">تعداد</td>
+							<td class="total">مجموع</td>
+							<td></td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr id="item1">
+							<td class="cart_product" >
+								<a href=""  ><img src="images/cart/one.png" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">کیف دستی</a></h4>
+								<p>شماره کالا: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>59000 تومان</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<a class="cart_quantity_up" href=""> + </a>
+									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href=""> - </a>
+								</div>
+							</td>
+							<td class="cart_total">
+								<p class="cart_total_price">59000 تومان</p>
+							</td>
+							<td class="cart_delete" >
+								<button type="button" class="btn btn-danger" id="deletButton1">حذف</button>
+							</td>
+						</tr>
+
+						<tr id="item2">
+							<td class="cart_product">
+								<a href=""><img src="images/cart/two.png" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">رنگ مو زنانه</a></h4>
+								<p>شماره کالا: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>23000 تومان</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<a class="cart_quantity_up" href=""> + </a>
+									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href=""> - </a>
+								</div>
+							</td>
+							<td class="cart_total">
+								<p class="cart_total_price">23000 تومان</p>
+							</td>
+							<td class="cart_delete">
+								<button type="button" class="btn btn-danger" id="deletButton2">حذف</button>
+							</td>
+						</tr>
+						<tr id="item3">
+							<td class="cart_product">
+								<a href=""><img src="images/cart/three.png" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">لباس مجلسی زنانه</a></h4>
+								<p>شماره کالا: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>78000 تومان</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<a class="cart_quantity_up" href=""> + </a>
+									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href=""> - </a>
+								</div>
+							</td>
+							<td class="cart_total">
+								<p class="cart_total_price">78000 تومان</p>
+							</td>
+							<td class="cart_delete">
+								<button type="button" class="btn btn-danger" id="deletButton3">حذف</button>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+					<table class="table" dir="rtl">
+						<thead>
+						<tr>
+
+							<th>مبلغ بدون کسر مالیات</th>
+							<th>کل مبلغ با کسر مالیات</th>
+							<th>کل مبلغ قابل پرداخت</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+
+							<td dir="auto">0.0</td>
+							<td dir="auto">0.0</td>
+							<td dir="auto">0.0</td>
+
+						</tr>
+						</tbody>
+					</table>
+					<button type="button" class="btn btn-success" style="margin-left: 20px;margin-bottom: 20px">تایید و ادامه خرید</button>
+					<button type="button" class="btn btn-danger" style="margin-left: 20px;margin-bottom: 20px">انصراف</button>
 				</div>
-				<div class="col-sm-1">
-					<h2 class="or">یا</h2>
-				</div>
-				<div class="col-sm-4" dir="rtl">
-					<div class="signup-form"><!--sign up form-->
-						<h2>ثبت نام کاربر</h2>
-						<form action="#" method="post">
-							<input type="text" placeholder="  نام ..."/>
-							<input type="email" placeholder="  ایمیل ..."/>
-							<input type="password" placeholder=" رمز عبور ..."/>
-							<button type="submit" class="btn btn-default">ثبت نام</button>
-						</form>
-					</div><!--/sign up form-->
+
+
+			</div>
+			<div id="menu1" class="tab-pane fade">
+				<div class="table-responsive cart_info">
+					<table class="table table-condensed">
+						<thead>
+						<tr class="cart_menu">
+							<td class="image">کالا</td>
+							<td class="description"></td>
+							<td class="price">قیمت</td>
+							<td class="quantity">تعداد</td>
+							<td class="total">وضعیت</td>
+							<td></td>
+						</tr>
+						</thead>
+						<tbody>
+						<tr id="item">
+							<td class="cart_product">
+								<a href=""><img src="images/cart/one.png" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">کیف دستی</a></h4>
+								<p>شماره کالا: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>59000 تومان</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<h>0</h>
+								</div>
+							</td>
+							<td class="cart_total">
+								<h >در حال ارسال</h>
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+										60%
+									</div>
+								</div>
+							</td>
+
+						</tr>
+
+						<tr>
+							<td class="cart_product">
+								<a href=""><img src="images/cart/two.png" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">رنگ مو زنانه</a></h4>
+								<p>شماره کالا: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>23000 تومان</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<h>0</h>
+								</div>
+							</td>
+							<td class="cart_total">
+								<h >ارسال شد</h>
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+										60%
+									</div>
+								</div>
+							</td>
+
+						</tr>
+						<tr>
+							<td class="cart_product">
+								<a href=""><img src="images/cart/three.png" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">لباس مجلسی زنانه</a></h4>
+								<p>شماره کالا: 1089772</p>
+							</td>
+							<td class="cart_price">
+								<p>78000 تومان</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<h>0</h>
+								</div>
+							</td>
+							<td class="cart_total">
+								<h >در حال ارسال</h>
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+										60%
+									</div>
+								</div>
+							</td>
+
+						</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
+			<div id="menu2" class="tab-pane fade">
+				<h3>Menu 2</h3>
+				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+			</div>
+			<div id="menu3" class="tab-pane fade">
+				<h3>Menu 3</h3>
+				<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+			</div>
 		</div>
-	</section><!--/form-->
+	</div>
+
+	</section> <!--/#cart_items-->
 	<footer id="footer"><!--Footer-->
 		<div class="footer-top">
 		

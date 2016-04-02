@@ -11,6 +11,12 @@ body {
 
   position: relative;
   font-weight:400px;
+
+}
+.badge-notify{
+  background:red;
+  position:relative;
+
 }
 
 ul li {
