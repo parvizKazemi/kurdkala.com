@@ -309,8 +309,35 @@
 						</tr>
 						</tbody>
 					</table>
-					<button type="button" class="btn btn-success" style="margin-left: 20px;margin-bottom: 20px">تایید و ادامه خرید</button>
-					<button type="button" class="btn btn-danger" style="margin-left: 20px;margin-bottom: 20px">انصراف</button>
+					<button type="button" class="btn btn-success" style="margin-left: 20px;margin-bottom: 20px" data-toggle="modal" data-target="#myModal">تایید و ادامه خرید</button>
+					<button type="button" class="btn btn-danger" style="margin-left: 20px;margin-bottom: 20px" >انصراف</button>
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog modal-lg">
+
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title" dir="auto">اطلاعات ارسال</h4>
+								</div>
+								<div class="modal-body">
+									<div class="form-group">
+
+										<div class="col-sm-10">
+											<input dir="rtl" class="form-control" id="pwd" placeholder="آدرس ...">
+
+										</div>
+
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
 				</div>
 
 
