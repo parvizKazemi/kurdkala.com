@@ -829,10 +829,10 @@ h2.title:before{
 }
 
 .well {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid #F7F7F0;
   border-radius: 4px;
-  box-shadow: none;
+  box-shadow: #222222;
   margin-bottom: 20px;
   min-height: 20px;
   padding: 35px;
