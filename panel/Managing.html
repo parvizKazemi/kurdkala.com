@@ -131,7 +131,7 @@
   <div class="tab-content">
     <div id="GroupAndSubgroup" class="tab-pane fade in active">
     <div class="row" style="margin-top: 30px;">
-     <div class="col-md-9">
+     <div class="col-md-9" >
  <div class="col-md-4">
 
 
@@ -140,50 +140,62 @@
 
      </div>
      <div class="col-md-4">
-     <div class="dropdown pull-right" style="margin-right: 70px">
-  <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    انتخاب گروه
-    <span class="caret"></span>
-  </button>
-
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-    <li><a href="#">لوازم دیجیتال</a></li>
-    <li><a href="#">لوازم خانگی</a></li>
-    <li><a href="#">لوازم آرایشی</a></li>
-   
-  </ul>
-</div>
+         <select class="form-control pull-right" style="margin-top: 30px" dir="rtl">
+     
+    <option value="one">لوازم دیجیتال</option>
+    <option value="two">لوازم خانگی</option>
+    <option value="three">لوازم فرهنگی</option>
+    <option value="four">لوازم ورزشی</option>
+    <option value="five">لوازم آرایشی</option>
+</select>
 <br/>
 <br/>
-<div class="input-group pull-right" style="margin-top:20px;width: 83%" dir="rtl">
+<form action="#" method="post">
+<div class="input-group pull-right" style="margin-top:20px;width: 100%" dir="rtl">
   
   <input type="text" class="form-control" placeholder="اسم گروه ..." aria-describedby="basic-addon1">
    
 
 </div>
-<br/>
-<button type="button" class="btn btn-success  glyphicon glyphicon-plus"></button>
-
-<br/>
+</form>
 <br/>
 
-<div class="input-group pull-right" style="margin-top:20px;width: 83%" dir="rtl">
+<button type="button" class="btn btn-primary glyphicon glyphicon-plus "  style="margin-top:10px;width: 100%;margin-right: 10px" ></button>
+<br/>
+<br/>
+<h class="pull-right">مشخصه های زیرگروه</h>
+<br/>
+
+<div class="well">
+<form action="#" method="post">
+<div class="input-group pull-right" style="width: 80%" dir="rtl">
   
-  <input type="text" class="form-control" placeholder="اسم گروه ..." aria-describedby="basic-addon1">
+  <input type="text" class="form-control" placeholder="اسم مشخصه ..." aria-describedby="basic-addon1">
    
 
 </div>
+</form>
+
+
+<button type="button" class="btn btn-danger pull-right glyphicon glyphicon-remove " style="margin-right: 2px"></button>
+<br/>
+<br/>
+<br/>
 <br/>
 
-<button type="button" class="btn btn-danger pull-left glyphicon glyphicon-remove "></button>
+
 <br/>
-<br/>
-<br/>
-<br/>
+
+</div>
 <button type="button" class="btn btn-primary pull-right">ثبت</button>
+
      </div>
+     
      </div>
+     
+     
      </div>
+
     </div>
 
     <div id="NewGood" class="tab-pane fade">
@@ -196,69 +208,62 @@
 
      </div>
      <div class="col-md-4" >
-     <div class="dropdown pull-right" style="margin-right: 70px;margin-top: 30px">
-  <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    انتخاب گروه
-    <span class="caret"></span>
-  </button>
-
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-    <li><a href="#">لوازم دیجیتال</a></li>
-    <li><a href="#">لوازم خانگی</a></li>
-    <li><a href="#">لوازم آرایشی</a></li>
-   
-  </ul>
-</div>
- <div class="dropdown pull-right" style="margin-right: 60px;margin-top: 30px">
-  <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    انتخاب زیرگروه
-    <span class="caret"></span>
-  </button>
-
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-    <li><a href="#">لوازم دیجیتال</a></li>
-    <li><a href="#">لوازم خانگی</a></li>
-    <li><a href="#">لوازم آرایشی</a></li>
-   
-  </ul>
-</div>
-<div class="dropdown pull-right" style="margin-right: 65px;margin-top: 30px">
-  <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    شرکت سازنده
-    <span class="caret"></span>
-  </button>
-
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-    <li><a href="#">Apple</a></li>
-    <li><a href="#">Sony</a></li>
-    <li><a href="#">Sumsung</a></li>
-   
-  </ul>
-</div>
+     
+     
+     <select class="form-control pull-right" style="margin-top: 30px" dir="rtl">
+     
+    <option value="one">لوازم دیجیتال</option>
+    <option value="two">لوازم خانگی</option>
+    <option value="three">لوازم فرهنگی</option>
+    <option value="four">لوازم ورزشی</option>
+    <option value="five">لوازم آرایشی</option>
+</select>
+<select class="form-control pull-right" style="margin-top: 30px" dir="rtl">
+    <option value="one">موبایل</option>
+    <option value="two">تلویزیون</option>
+    <option value="three">لپ تاپ</option>
+    <option value="four">کامپیوتر</option>
+    
+</select>
+<select class="form-control pull-right" style="margin-top: 30px" dir="rtl">
+    <option value="one">apple</option>
+    <option value="two">Sumsung</option>
+    <option value="three">Asus</option>
+    <option value="four">Acer</option>
+    <option value="five">HP</option>
+</select>
+<form action="#" method="post">
 <div class="input-group pull-right" style="margin-top:30px;width: 83%;margin-right: 10px" dir="rtl">
   
   <input type="text" class="form-control" placeholder="اسم کالا ..." aria-describedby="basic-addon1">
    
 
 </div>
+</form>
+<form action="#" method="post">
 <div class="input-group pull-right" style="margin-top:30px;width: 83%;margin-right: 10px" dir="rtl">
   
   <input type="text" class="form-control" placeholder="قیمت ..." aria-describedby="basic-addon1">
    
 
 </div>
+</form>
+<form action="#" method="post">
 <div class="input-group pull-right" style="margin-top:30px;width: 83%;margin-right: 10px" dir="rtl">
   
   <input type="text" class="form-control" placeholder="بن تخفیف ..." aria-describedby="basic-addon1">
    
 
 </div>
+</form>
+<form action="#" method="post">
 <div class="input-group pull-right" style="margin-top:30px;width: 83%;margin-right: 10px" dir="rtl">
   
   <input type="text" class="form-control" placeholder="مدل ..." aria-describedby="basic-addon1">
    
 
 </div>
+</form>
 <button type="button" class="btn btn-success pull-right" style="margin-top:30px;width: 83%;margin-right: 10px">ثبت</button>
 
      </div>
@@ -277,25 +282,21 @@
 
      </div>
      <div class="col-md-4">
-     <div class="dropdown pull-right" style="margin-right: 50px;margin-top: 30px">
-  <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-  انتخاب شرکت سازنده
-    <span class="caret"></span>
-  </button>
-
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
-    <li><a href="#">Apple</a></li>
-    <li><a href="#">Sony</a></li>
-    <li><a href="#">Sumsung</a></li>
-   
-  </ul>
-</div>
+     <select class="form-control pull-right" style="margin-top: 30px" dir="rtl">
+    <option value="one">apple</option>
+    <option value="two">Sumsung</option>
+    <option value="three">Asus</option>
+    <option value="four">Acer</option>
+    <option value="five">HP</option>
+</select>
+<form action="#" method="post">
      <div class="input-group pull-right" style="margin-top:30px;width: 83%;margin-right: 10px" dir="rtl">
   
   <input type="text" class="form-control" placeholder="نام شرکت ... " aria-describedby="basic-addon1">
    
 
 </div>
+</form>
 <button type="button" class="btn btn-success pull-right" style="margin-top:30px;width: 83%;margin-right: 10px">ثبت</button>
      </div>
      </div>
