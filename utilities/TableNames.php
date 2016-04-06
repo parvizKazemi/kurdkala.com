@@ -12,4 +12,5 @@ namespace utilities;
 class TableNames
 {
     public static $Login="login";
+    public static $Person="person";
 }
