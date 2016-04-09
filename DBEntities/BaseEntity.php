@@ -1,5 +1,5 @@
 <?php
-require_once('../database/rbInit.php');
+require_once "../database/rbInit.php";
 
 /**
  * Created by PhpStorm.

@@ -1,6 +1,6 @@
 <?php
-require_once "./utilities/TableNames.php";
-require_once "./services/IPersonService.php";
+require_once "../utilities/TableNames.php";
+require_once "../services/IPersonService.php";
 require_once "BaseEntity.php";
 
 class PersonService extends BaseEntity implements IPersonService

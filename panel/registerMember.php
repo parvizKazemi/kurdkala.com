@@ -1,8 +1,8 @@
 <?php
 //require_once "utilities/checkLogin.php";
-require_once "DBEntities/PersonService.php";
-require_once "DBEntities/LoginEntity.php";
-require_once "utilities/TableNames.php";
+require_once "../DBEntities/PersonService.php";
+require_once "../DBEntities/LoginEntity.php";
+require_once "../utilities/TableNames.php";
 
 /**
  * @param $email user email address
