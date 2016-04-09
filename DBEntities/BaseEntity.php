@@ -1,5 +1,5 @@
 <?php
-require_once "./database/rbInit.php";
+require_once('../database/rbInit.php');
 
 /**
  * Created by PhpStorm.
@@ -18,6 +18,7 @@ abstract class BaseEntity
 
     protected abstract function getEntity($entity);
     protected abstract function getBean($entity);
+    public abstract function delete();
 
     private function setTableName($tbName)
     {
@@ -39,7 +40,7 @@ abstract class BaseEntity
     public function getAll()
     {
         $entities=array();
-        $result=R::loadAll($this->getTableName());
+        $result=R::findAll($this->getTableName());
         if(is_array($result) && count($result)>0) {
             foreach ($result as $entity)
                 array_push($entities, $this->getEntity($entity));
@@ -85,6 +86,34 @@ abstract class BaseEntity
             return false;
     }
 
+    public function getOneByProperties(array $prop)
+    {
+        $entities=array();
+        $sql="";
+        $arrayCount=count($prop);
+        $values=array();
+        foreach($prop as $key => $value)
+        {
+            $sql.= "$key=? ";
+            array_push($values,$value);
+            if($arrayCount>1)
+                $sql.="and ";
+            $arrayCount--;
+        }
+
+        $sql.=" LIMIT 1";
+
+        $result=R::find($this->getTableName(),$sql,$values);
+        if(is_array($result) && count($result)>0) {
+            foreach ($result as $entity)
+                array_push($entities, $this->getEntity($entity));
+
+            return $entities;
+        }
+        else
+            return false;
+    }
+
     public function save()
     {
         $entity=R::dispense($this->getTableName());
@@ -97,6 +126,13 @@ abstract class BaseEntity
             return false;
     }
 
+    public function doQuery($query)
+    {
+        return R::exec($query);
+    }
+
+
+
     public function edit()
     {
         $entity=R::load($this->getTableName(),$this->getId());
@@ -106,4 +142,6 @@ abstract class BaseEntity
         else
             return false;
     }
+
+
 }

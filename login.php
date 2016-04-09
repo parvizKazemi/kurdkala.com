@@ -2,7 +2,7 @@
 require_once "DBEntities/LoginEntity.php";
 require_once "utilities/TableNames.php";
 
-if(isset($_POST["uName"]) && isset($_POST["pass"]))
+if(isset($_POST["email"]) && isset($_POST["pass"]))
 {
     $login=new LoginEntity(\utilities\TableNames::$Login);
     $person=$login->checkLogin($_POST["uName"],$_POST["pass"]);
