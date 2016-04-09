@@ -28,7 +28,7 @@ function saveDetail($detail)
 
 /**
  * @param $detId
- * @param $gr
+ * @param $groupId
  */
 function saveGroupDetail($detId, $groupId)
 {
@@ -49,7 +49,7 @@ function saveGroupDetail($detId, $groupId)
  * @param $pics
  * @return bool
  */
-function saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goodName, $pics)
+function saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goodName, $pics, $gCode)
 {
     $good = new GoodService(\utilities\TableNames::$Good);
     $good->setGroupId($gGroupId);
@@ -60,6 +60,7 @@ function saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goo
     $good->setModel($gModel);
     $good->setName($goodName);
     $good->setPics($pics);
+    $good->setCode($gCode);
     if ($good->save())
         return $good->getId();
     return false;
@@ -75,7 +76,6 @@ function saveGoodDetail($d, $gGoodId)
     $gDetail = explode(":", $d);
     if(count($gDetail)>1)
     {
-        print_r($gDetail);
         $goodDetail = new GoodDetailService(\utilities\TableNames::$GoodDetail);
         $goodDetail->setGoodId($gGoodId);
         $goodDetail->setDetailId($gDetail[0]);
@@ -151,7 +151,6 @@ if(isset($_POST["formName"]))
         }
         elseif($formName==="good")
         {
-            //TODO save good
             $goodName=$_POST["goodName"];
             $gCompanyId=$_POST["company"];
             $gGroupId=$_POST["group"];
@@ -159,9 +158,10 @@ if(isset($_POST["formName"]))
             $gOff=$_POST["off"];
             $gModel=$_POST["model"];
             $gCount=$_POST["count"];
+            $gCode=$_POST["code"];
             $gPics=saveGoodPics();
 
-            $gGoodId= saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goodName,$gPics);
+            $gGoodId= saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goodName,$gPics,$gCode);
             if($gGoodId!=false)
             {
                 if(isset($_POST["details"]))
@@ -177,8 +177,7 @@ if(isset($_POST["formName"]))
 
                     }
                 }
-                echo "اطلاعات با موفقیت ثبت شد";
-                die();
+                echo '<h1 align="center" style="color: #4cae4c;">'.'اطلاعات با موفقیت ثبت شد'.'</h1>';
             }
             else{
                 echo "محصول ثبت نشد";
@@ -198,60 +197,14 @@ if(isset($_POST["formName"]))
         }
     }
 
-    /*function saveGroupDetail($subGId, $val)
-    {
-        $groupDetail = R::dispense("groupdetail");
-        $groupDetail->group_id = $subGId;
-        $groupDetail->detail_id = addDetails($val);
-        $gdId = R::store($groupDetail);
-        return $gdId;
-    }
-
-    function addDetails($det){
-        $deatilSet=R::findOne("detailname","name=?",[$det]);
-
-        if($deatilSet==null){
-            $deatil=R::dispense("detailname");
-            $deatil->name=$det;
-            $deatilId=R::store($deatil);
-        }
-        else
-            $deatilId=$deatilSet->id;
-        return $deatilId;
-    }
-
-    /**
-     * @return int|string
-     */
-    /*function saveNewGroup()
-    {
-        $subGroup = R::dispense('goodgroup');
-        $subGroup->name = $_POST["sGroupName"];
-        $subGroup->parent_id = $_POST["parentId"];
-        $subGId = R::store($subGroup);
-        return $subGId;
-    }
-
-    if(isset($_POST["sGroupName"]) )
-    {
-        $subGId = saveNewGroup();
-        if($subGId!=null && $subGId>0) echo "ثبت شد";
-        if(isset($_POST["detail"])){
-            $details=$_POST["detail"];
-            foreach($details as $key=>$val){
-                $gdId = saveGroupDetail($subGId, $val);
-                echo "<br/>".$gdId;
-            }
-        }
-    }
-
-    $groups=R::find("goodgroup","parent_id = ?",[0]);*/
-
     $group=new GroupService(\utilities\TableNames::$Group);
     $groups=$group->getByProperties(array("parent_id"=>0));
 
     $company=new CompanyService(\utilities\TableNames::$Company);
     $companies=$company->getAll();
+
+    $rGood=new GoodService(\utilities\TableNames::$Good);
+    $registerdGoods=$rGood->getLastInsertedGoods(5);
 
 ?>
 <!DOCTYPE html>
@@ -500,6 +453,13 @@ if(isset($_POST["formName"]))
                                                     </div>
 
                                                     <div class="input-group pull-right" style="margin-top:30px;width: 83%;margin-right: 10px" dir="rtl">
+
+                                                        <input type="text" name="code" class="form-control" placeholder="کد محصول ..." aria-describedby="basic-addon1">
+
+
+                                                    </div>
+
+                                                    <div class="input-group pull-right" style="margin-top:30px;width: 83%;margin-right: 10px" dir="rtl">
                                                         <input type="file" name="pic1" class="form-control" placeholder="عکس محصول" aria-describedby="basic-addon1">
                                                     </div>
                                                     <div class="input-group pull-right" style="margin-top:30px;width: 83%;margin-right: 10px" dir="rtl">
@@ -548,65 +508,39 @@ if(isset($_POST["formName"]))
                                     </div>
 
                                 </div>
-                                <div id="ShowGoods" class="tab-pane fade">
-                                    <table class="table table-bordered">
+                                <div id="ShowGoods" class="tab-pane fade table-responsive">
+                                    <table class="table table-bordered " style="width: 900px">
                                         <thead>
-                                        <tr>
-                                            <th>کد</th>
-                                            <th>گروه اصلی</th>
-                                            <th>زیر گروه</th>
-                                            <th>اسم</th>
-                                            <th>مدل</th>
-                                            <th>قیمت</th>
-                                            <th>شرکت سازنده</th>
-                                            <th>تعداد</th>
-                                            <th>بن تخفیف</th>
-                                            <th>میزان فروش</th>
-                                        </tr>
+                                            <tr>
+                                                <th>کد</th>
+                                                <th> گروه</th>
+                                                <th>اسم</th>
+                                                <th>مدل</th>
+                                                <th>قیمت</th>
+                                                <th>تعداد</th>
+                                                <th>بن تخفیف</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>56848</td>
-                                            <td>کالای دیجیتال</td>
-                                            <td>موبایل</td>
-                                            <td>آیفون</td>
-                                            <td>6 plus x</td>
-                                            <td>253.000.0</td>
-                                            <td>اپل</td>
-                                            <td>23</td>
-                                            <td>10.000</td>
-                                            <td>56</td>
+                                        <?php
+                                            if($registerdGoods!=false)
+                                            {
+                                                foreach($registerdGoods as $rg)
+                                                {
+                                                    echo '<tr>
+                                                            <td>'.$rg->getCode().'</td>
+                                                            <td>'.$rg->getGroupId().'</td>
+                                                            <td>'.$rg->getName().'</td>
+                                                            <td>'.$rg->getModel().'</td>
+                                                            <td>'.$rg->getPrice().'</td>
+                                                            <td>'.$rg->getCount().'</td>
+                                                            <td>'.$rg->getOff().'</td>
+                                                        </tr>';
+                                                }
+                                            }
+                                        ?>
 
 
-                                        </tr>
-                                        <tr>
-                                            <td>56848</td>
-                                            <td>کالای دیجیتال</td>
-                                            <td>موبایل</td>
-                                            <td>آیفون</td>
-                                            <td>6 plus x</td>
-                                            <td>253.000.0</td>
-                                            <td>اپل</td>
-                                            <td>23</td>
-                                            <td>10.000</td>
-                                            <td>56</td>
-
-
-                                        </tr>
-                                        <tr>
-                                            <td>56848</td>
-                                            <td>کالای دیجیتال</td>
-                                            <td>موبایل</td>
-                                            <td>آیفون</td>
-                                            <td>6 plus x</td>
-                                            <td>253.000.0</td>
-                                            <td>اپل</td>
-                                            <td>23</td>
-                                            <td>10.000</td>
-                                            <td>56</td>
-
-
-                                        </tr>
                                         </tbody>
 
                                     </table>

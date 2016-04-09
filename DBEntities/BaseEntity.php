@@ -131,6 +131,10 @@ abstract class BaseEntity
         return R::exec($query);
     }
 
+    public function doQueryAndReturn($query)
+    {
+        return R::getAll($query);
+    }
 
 
     public function edit()

@@ -13,10 +13,27 @@ class GoodService extends BaseEntity implements IGoodService
     private $model;
     private $off;
     private $pics;
+    private $code;
 
     function __construct($tbName)
     {
         parent::__construct($tbName);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param mixed $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
     }
 
     /**
@@ -159,6 +176,7 @@ class GoodService extends BaseEntity implements IGoodService
         $good->setOff($entity->off);
         $good->setPics($entity->pics);
         $good->setPrice($entity->price);
+        $good->setCode($entity->code);
         return $good;
     }
 
@@ -172,11 +190,35 @@ class GoodService extends BaseEntity implements IGoodService
         $entity->off=$this->getOff();
         $entity->pics=$this->getPics();
         $entity->price=$this->getPrice();
+        $entity->code=$this->getCode();
         return $entity;
     }
 
     public function delete()
     {
         // TODO: Implement delete() method.
+    }
+
+    function getLastInsertedGoods($count)
+    {
+        $fetchedGoods=array();
+        $goods=$this->doQueryAndReturn("SELECT  `group`.name AS groupName, good.id, good.name, good.count, good.model, good.off, good.price,good.code  FROM good INNER JOIN `group` ON good.group_id=`group`.id ORDER BY id DESC LIMIT ".$count);
+
+        foreach($goods as $g)
+        {
+            $good=new GoodService(\utilities\TableNames::$Good);
+            $good->setId($g["id"]);
+            $good->setCode($g["code"]);
+            $good->setName($g["name"]);
+            $good->setGroupId($g["groupName"]);
+            $good->setModel($g["model"]);
+            $good->setOff($g["off"]);
+            $good->setPrice($g["price"]);
+            $good->setCount($g["count"]);
+            array_push($fetchedGoods,$good);
+        }
+        if(count($fetchedGoods)>0)
+            return $fetchedGoods;
+        else return false;
     }
 }
