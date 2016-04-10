@@ -14,10 +14,27 @@ class GoodService extends BaseEntity implements IGoodService
     private $off;
     private $pics;
     private $code;
+    private $description;
 
     function __construct($tbName)
     {
         parent::__construct($tbName);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
     /**
@@ -177,6 +194,7 @@ class GoodService extends BaseEntity implements IGoodService
         $good->setPics($entity->pics);
         $good->setPrice($entity->price);
         $good->setCode($entity->code);
+        $good->setDescription($entity->description);
         return $good;
     }
 
@@ -191,7 +209,18 @@ class GoodService extends BaseEntity implements IGoodService
         $entity->pics=$this->getPics();
         $entity->price=$this->getPrice();
         $entity->code=$this->getCode();
+        $entity->description=$this->getDescription();
         return $entity;
+    }
+
+    public function save()
+    {
+        $good=new GoodService(\utilities\TableNames::$Good);
+        $findedGood=$good->getByProperties(array("code"=>$this->getCode()));
+        if($findedGood===false)
+            return parent::save();
+        else
+            return false;
     }
 
     public function delete()

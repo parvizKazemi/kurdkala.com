@@ -49,7 +49,7 @@ function saveGroupDetail($detId, $groupId)
  * @param $pics
  * @return bool
  */
-function saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goodName, $pics, $gCode)
+function saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goodName, $pics, $gCode, $gDescription)
 {
     $good = new GoodService(\utilities\TableNames::$Good);
     $good->setGroupId($gGroupId);
@@ -61,6 +61,7 @@ function saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goo
     $good->setName($goodName);
     $good->setPics($pics);
     $good->setCode($gCode);
+    $good->setDescription($gDescription);
     if ($good->save())
         return $good->getId();
     return false;
@@ -159,9 +160,13 @@ if(isset($_POST["formName"]))
             $gModel=$_POST["model"];
             $gCount=$_POST["count"];
             $gCode=$_POST["code"];
+            $gDescription=$_POST["description"];
             $gPics=saveGoodPics();
 
-            $gGoodId= saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goodName,$gPics,$gCode);
+            if($gOff==="" || $gOff===null || $gOff==='')
+                $gOff=0;
+
+            $gGoodId= saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goodName,$gPics,$gCode, $gDescription);
             if($gGoodId!=false)
             {
                 if(isset($_POST["details"]))
@@ -183,8 +188,6 @@ if(isset($_POST["formName"]))
                 echo "محصول ثبت نشد";
                 die();
             }
-
-
         }
         elseif($formName==="company")
         {
@@ -227,6 +230,23 @@ if(isset($_POST["formName"]))
 
 
     <script src="jquery-1.12.2.min.js"></script>
+    <script src='editor/tinymce.min.js'></script>
+    <script>
+        tinymce.init({
+            selector: '#mytextarea',
+            height: 500,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_css: [
+                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });
+    </script>
 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -386,12 +406,10 @@ if(isset($_POST["formName"]))
 
                                 <div id="NewGood" class="tab-pane fade">
                                     <div class="col-md-9">
-                                        <div class="col-md-4">
-
-
-                                        </div>
-                                        <div class="col-md-4" >
-
+                                        <div class="col-md-8" >
+                                            <div style="margin-top: 5px;">
+                                                <textarea name="description" id="mytextarea"></textarea>
+                                            </div>
                                         </div>
                                         <div class="col-md-4" >
                                             <select id="groupSelect" class="form-control pull-right" style="margin-top: 30px" dir="rtl">
@@ -469,6 +487,7 @@ if(isset($_POST["formName"]))
                                                         <input type="file" name="pic3" class="form-control" placeholder="عکس محصول" aria-describedby="basic-addon1">
                                                     </div>
                                                     <input type="hidden" name="formName" value="good"/>
+
 
 
                                             </form>
@@ -563,7 +582,11 @@ if(isset($_POST["formName"]))
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
+
     <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
     <script type="application/javascript">
         $(".deleteProperty").click(function () {
             deleteMe($(this));
@@ -688,8 +711,11 @@ if(isset($_POST["formName"]))
             {
                 mess+=dat[index].name+":"+dat[index].value+",";
             }
+            tinymce.triggerSave();
+
 
             $("#frmGood").append('<input type="hidden" name="details" value="'+mess+'"/>');
+            $("#frmGood").append($("#mytextarea"));
             $("#frmGood").submit();
         }
 
