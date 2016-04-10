@@ -16,10 +16,13 @@ class GoodService extends BaseEntity implements IGoodService
     private $code;
     private $description;
 
+
     function __construct($tbName)
     {
         parent::__construct($tbName);
     }
+
+
 
     /**
      * @return mixed
@@ -219,8 +222,8 @@ class GoodService extends BaseEntity implements IGoodService
         $findedGood=$good->getByProperties(array("code"=>$this->getCode()));
         if($findedGood===false)
             return parent::save();
-        else
-            return false;
+        $this->setErrorMessage("خطای کد مشابه");
+        return false;
     }
 
     public function delete()

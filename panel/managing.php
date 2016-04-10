@@ -12,6 +12,8 @@
     require_once "../utilities/UUID.php";
     require_once "../utilities/ImageResizer.php";
 
+
+$goodMessage="";
 /**
  * @param $detail
  * @return array|bool
@@ -51,6 +53,8 @@ function saveGroupDetail($detId, $groupId)
  */
 function saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goodName, $pics, $gCode, $gDescription)
 {
+    global $goodMessage;
+
     $good = new GoodService(\utilities\TableNames::$Good);
     $good->setGroupId($gGroupId);
     $good->setCompanyId($gCompanyId);
@@ -64,6 +68,7 @@ function saveGood($gGroupId, $gCompanyId, $gCount, $gPrice, $gOff, $gModel, $goo
     $good->setDescription($gDescription);
     if ($good->save())
         return $good->getId();
+    $goodMessage=$good->getErrorMessage();
     return false;
 }
 
@@ -176,8 +181,8 @@ if(isset($_POST["formName"]))
                     {
                         if(!saveGoodDetail($d, $gGoodId))
                         {
-                            echo "مقادیر توضیحات ثبت نشد";
-                            die();
+                            $mess="مقادیر توضیحات ثبت نشد";
+                            echo '<h1 align="center" style="color: #761c19;">'.$mess.'</h1>';
                         }
 
                     }
@@ -185,8 +190,8 @@ if(isset($_POST["formName"]))
                 echo '<h1 align="center" style="color: #4cae4c;">'.'اطلاعات با موفقیت ثبت شد'.'</h1>';
             }
             else{
-                echo "محصول ثبت نشد";
-                die();
+                $mess="محصول به دلیل ".$goodMessage." ثبت نشد";
+                echo '<h1 align="center" style="color: #761c19;">'.$mess.'</h1>';
             }
         }
         elseif($formName==="company")

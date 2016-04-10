@@ -11,6 +11,9 @@ abstract class BaseEntity
 {
     private $tableName="";
     private $id;
+
+    private $errorMessage;
+
     function __construct($tbName)
     {
         $this->setTableName($tbName);
@@ -122,8 +125,9 @@ abstract class BaseEntity
         {
             $this->setId($id);
             return true;
-        }else
-            return false;
+        }
+        $this->setErrorMessage("خطا در انجام عملیات");
+        return false;
     }
 
     public function doQuery($query)
@@ -145,6 +149,22 @@ abstract class BaseEntity
             return true;
         else
             return false;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getErrorMessage()
+    {
+        return $this->errorMessage;
+    }
+
+    /**
+     * @param mixed $errorMessage
+     */
+    protected function setErrorMessage($errorMessage)
+    {
+        $this->errorMessage = $errorMessage;
     }
 
 
