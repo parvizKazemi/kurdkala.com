@@ -12,11 +12,15 @@
         $login=new LoginEntity(\utilities\TableNames::$Login);
         $person=$login->checkLogin($_POST["email"],$_POST["pass"]);
 
-        $_SESSION[PublicSessions::$user]=$person;
+
 
 
         if($person!=false)
+        {
+            $_SESSION[PublicSessions::$user]=$person;
             Utilities::redirect("managing.php");
+        }
+
         else
             echo "problem in geting";
     }
