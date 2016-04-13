@@ -12,9 +12,6 @@
         $login=new LoginEntity(\utilities\TableNames::$Login);
         $person=$login->checkLogin($_POST["email"],$_POST["pass"]);
 
-
-
-
         if($person!=false)
         {
             $_SESSION[PublicSessions::$user]=$person;

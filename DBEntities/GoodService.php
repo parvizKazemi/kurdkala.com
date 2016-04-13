@@ -234,7 +234,7 @@ class GoodService extends BaseEntity implements IGoodService
     function getLastInsertedGoods($count)
     {
         $fetchedGoods=array();
-        $goods=$this->doQueryAndReturn("SELECT  `group`.name AS groupName, good.id, good.name, good.count, good.model, good.off, good.price,good.code  FROM good INNER JOIN `group` ON good.group_id=`group`.id ORDER BY id DESC LIMIT ".$count);
+        $goods=$this->doQueryAndReturn("SELECT  `group`.name AS groupName, good.id, good.name, good.count, good.model, good.off, good.price,good.code,good.pics  FROM good INNER JOIN `group` ON good.group_id=`group`.id ORDER BY id DESC LIMIT ".$count);
 
         foreach($goods as $g)
         {
@@ -247,6 +247,7 @@ class GoodService extends BaseEntity implements IGoodService
             $good->setOff($g["off"]);
             $good->setPrice($g["price"]);
             $good->setCount($g["count"]);
+            $good->setPics($g["pics"]);
             array_push($fetchedGoods,$good);
         }
         if(count($fetchedGoods)>0)

@@ -559,6 +559,7 @@ if(isset($_POST["formName"]))
                                                             <td>'.$rg->getPrice().'</td>
                                                             <td>'.$rg->getCount().'</td>
                                                             <td>'.$rg->getOff().'</td>
+                                                            <td><button pics="'.$rg->getPics().'" class="showPics" class="btn btn-success">نمایش عکسها</button></td>
                                                         </tr>';
                                                 }
                                             }
@@ -568,6 +569,8 @@ if(isset($_POST["formName"]))
                                         </tbody>
 
                                     </table>
+                                    <div id="goodPicSection">
+                                    </div>
 
                                 </div>
 
@@ -724,6 +727,14 @@ if(isset($_POST["formName"]))
             $("#frmGood").submit();
         }
 
+        $(".showPics").click(function () {
+            var picture=$(this).attr("pics");
+            var pictures=picture.split(",");
+            $("#goodPicSection").text("");
+            jQuery.each( pictures, function( i, val ) {
+                $("#goodPicSection").append('<img class="img-thumbnail" src="../'+val+'"/>');
+            });
+        });
     </script>
 
 </body>
