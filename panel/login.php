@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
     require_once "../DBEntities/LoginEntity.php";
     require_once "../utilities/TableNames.php";
     require_once "../utilities/utilities.php";

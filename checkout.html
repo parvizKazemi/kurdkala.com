@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
-<body>
+<>
 <header id="header"><!--header-->
 	<div class="header_top"><!--header_top-->
 
@@ -80,7 +80,7 @@
 			<div class="row" >
 				<div class="col-sm-4">
 					<div class="logo pull-left">
-						<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+						<a href="panel/index.php"><img src="images/home/logo.png" alt="" /></a>
 					</div>
 					<div class="btn-group pull-left">
 						<div class="btn-group" style="margin-top: 5px">
@@ -117,7 +117,7 @@
 								</ul>
 
 							</li>
-							<li><a href="index.html" class="active" >خانه</a></li>
+							<li><a href="panel/index.php" class="active" >خانه</a></li>
 						</ul>
 						<ul class="nav navbar-nav">
 							<li><a href="checkout.html"><i class="fa fa-user"></i> حساب</a></li>
@@ -168,12 +168,7 @@
 				<li class="active"><a data-toggle="tab" href="#messages">پیغام ها </a></li>
 				<li><a data-toggle="tab" href="#orders"> سفارشات</a></li>
 				<li ><a data-toggle="tab" href="#favorits">مورد علاقه ها</a></li>
-				<li><a data-toggle="tab" href="#opinions">نظرات </a></li>
-				<li ><a data-toggle="tab" href="#cashes">نقد ها</a></li>
-				<li><a data-toggle="tab" href="#offs"> بن های تخفیف</a></li>
-				<li ><a data-toggle="tab" href="#giftCarts">کارت های هدیه</a></li>
-				<li><a data-toggle="tab" href="#notices"> اطلاع رسانی ها</a></li>
-				<li ><a data-toggle="tab" href="#ordersFollowUp"> پیگیری سفارشات</a></li>
+
 
 
 			</ul>
@@ -181,19 +176,12 @@
 				<div id="messages" class="tab-pane fade in active">
 					<div class="well">
 
-						<h>messages</h>
-						<br/>
-						<h>messages</h>
-						<br/>
-						<h>messages</h>
-						<br/>
-						<h>messages</h>
-						<br/>
-						<h>messages</h>
-						<br/>
-						<h>messages</h>
-						<br/>
-						<h>messages</h>
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-success">پیغام جدید</li>
+							<li class="list-group-item list-group-item-info">پیغام جدید</li>
+
+						</ul>
+
 						</div>
 
 
@@ -203,36 +191,280 @@
 					</div>
 
 				<div id="orders" class="tab-pane fade ">
-					<h>orders</h>
-					<br/>
-					<h>orders</h>
-					<br/>
-					<h>orders</h>
-					<br/>
+					<div class="list-group">
+
+						<a href="#" class="list-group-item"  data-toggle="modal" data-target="#myModal1">23/4/1394</a>
+						<a href="#" class="list-group-item">23/4/1394
+
+						</a>
+						<a href="#" class="list-group-item">23/4/1394</a>
+						<a href="#" class="list-group-item">23/4/1394</a>
+					</div>
+					<div class="modal fade" id="myModal1" role="dialog" >
+						<div class="modal-dialog">
+
+							<!-- Modal content-->
+							<div class="modal-content">
+
+								<div class="modal-header">
+
+
+									<h4 class="modal-title" dir="auto" style="margin-right: 20px">معید حیدری</h4>
+									<h4 class="modal-title" dir="auto">23/4/1394</h4>
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+											در حال ارسال
+										</div>
+									</div>
+								</div>
+								<div class="modal-body">
+									<div class="table-responsive cart_info" >
+										<table class="table table-condensed">
+											<thead>
+											<tr class="cart_menu">
+												<td class="image">ردیف</td>
+
+												<td class="price">نام کالا</td>
+												<td class="price">کد کالا</td>
+												<td class="quantity">تعداد</td>
+												<td class="total">قیمت واحد</td>
+												<td class="total">بن تخفیف</td>
+												<td class="total">کد تخفیف</td>
+												<td class="total">قیمت کل </td>
+
+												<td></td>
+											</tr>
+											</thead>
+											<tbody>
+											<tr id="item1">
+												<td class="cart_product" >
+													<a href=""  >1</a>
+												</td>
+												<td class="cart_description">
+													<p>کیف دستی</p>
+
+												</td>
+												<td class="cart_price">
+													<p>5465186</p>
+												</td>
+												<td class="cart_quantity">
+													<p>2</p>
+												</td>
+												<td class="cart_total">
+													<p class="cart_total_price">59000 تومان</p>
+												</td>
+												<td class="cart_quantity">
+													<p>0%</p>
+												</td>
+												<td class="cart_quantity">
+													<p></p>
+												</td>
+												<td class="cart_total">
+													<p class="cart_total_price">59000 تومان </p>
+												</td>
+
+
+											</tr>
+
+											<tr id="item1">
+												<td class="cart_product" >
+													<a href=""  >1</a>
+												</td>
+												<td class="cart_description">
+													<p>کیف دستی</p>
+
+												</td>
+												<td class="cart_price">
+													<p>5465186</p>
+												</td>
+												<td class="cart_quantity">
+													<p>2</p>
+												</td>
+												<td class="cart_total">
+													<p class="cart_total_price">59000 تومان</p>
+												</td>
+												<td class="cart_quantity">
+													<p>20%</p>
+												</td>
+												<td class="cart_quantity">
+													<p>684646</p>
+												</td>
+												<td class="cart_total">
+													<p class="cart_total_price">59000 تومان </p>
+												</td>
+
+
+											</tr>
+											<tr id="item1">
+												<td class="cart_product" >
+													<a href=""  >1</a>
+												</td>
+												<td class="cart_description">
+													<p>کیف دستی</p>
+
+												</td>
+												<td class="cart_price">
+													<p>5465186</p>
+												</td>
+												<td class="cart_quantity">
+													<p>2</p>
+												</td>
+												<td class="cart_total">
+													<p class="cart_total_price">59000 تومان</p>
+												</td>
+												<td class="cart_quantity">
+													<p>0%</p>
+												</td>
+												<td class="cart_quantity">
+													<p></p>
+												</td>
+												<td class="cart_total">
+													<p class="cart_total_price">59000 تومان </p>
+												</td>
+
+											</tr>
+											</tbody>
+										</table>
+										<table class="table pull-left" dir="rtl">
+											<thead>
+											<tr dir="rtl">
+
+												<th ></th>
+												<th>کل مبلغ قابل پرداخت</th>
+
+											</tr>
+											</thead>
+											<tbody dir="rtl">
+											<tr>
+												<td dir="rtl">سنندج - شهرک پردیس - خیابان اوراز - کوچه معراج 5</td>
+												<td dir="auto">0.0</td>
+
+
+											</tr>
+											</tbody>
+										</table>
+
+										<div class="modal fade" id="myModal" role="dialog">
+											<div class="modal-dialog modal-lg">
+
+
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
 				</div>
+
 				<div id="favorits" class="tab-pane fade ">
+					<div class="table-responsive cart_info" >
+						<table class="table table-condensed">
+							<thead>
+							<tr class="cart_menu">
+								<td class="image">ردیف</td>
 
-				</div>
-				<div id="opinions" class="tab-pane fade ">
+								<td class="price">نام کالا</td>
+								<td class="price">کد کالا</td>
 
-				</div>
-				<div id="cashes" class="tab-pane fade ">
+								<td class="total">قیمت واحد</td>
+								<td class="total">عکس کالا</td>
+								<td class="total">موجودیت</td>
+								<td></td>
+							</tr>
+							</thead>
+							<tbody>
+							<tr id="item1" class="clickable-row">
+								<td class="cart_product" >
+									<a href=""  >1</a>
+								</td>
+								<td class="cart_description">
+									<p>کیف دستی</p>
 
-				</div>
-				<div id="offs" class="tab-pane fade">
+								</td>
+								<td class="cart_price">
+									<p>5465186</p>
+								</td>
 
-				</div>
-				<div id="giftCarts" class="tab-pane fade ">
+								<td class="cart_total">
+									<p class="cart_total_price">59000 تومان</p>
+								</td>
+								<td class="cart_product">
+									<a href=""><img src="images/cart/two.png" alt=""></a>
+								</td>
+								<td class="cart_total">
+									<button type="button" class="btn btn-success">سفارش</button>
+									<button type="button" class="btn btn-danger glyphicon glyphicon-remove"> </button>
 
-				</div>
-				<div id="notices" class="tab-pane fade ">
+								</td>
 
-				</div>
-				<div id="ordersFollowUp" class="tab-pane fade ">
+							</tr>
 
-				</div>
+							<tr id="item1" class="clickable-row">
+								<td class="cart_product" >
+									<a href=""  >2</a>
+								</td>
+								<td class="cart_description">
+									<p>کیف دستی</p>
+
+								</td>
+								<td class="cart_price">
+									<p>5465186</p>
+								</td>
+
+								<td class="cart_total">
+									<p class="cart_total_price">59000 تومان</p>
+								</td>
+								<td class="cart_product">
+									<a href=""><img src="images/cart/two.png" alt=""></a>
+								</td>
+
+								<td class="cart_total">
+								<button type="button" class="btn btn-danger">موجود نیست</button>
+									<button type="button" class="btn btn-danger glyphicon glyphicon-remove"> </button>
+
+								</td>
+
+							</tr>
+							<tr id="item1" class="clickable-row">
+								<td class="cart_product" >
+									<a href=""  >3</a>
+								</td>
+								<td class="cart_description">
+									<p>کیف دستی</p>
+
+								</td>
+								<td class="cart_price">
+									<p>5465186</p>
+								</td>
+
+								<td class="cart_total">
+									<p class="cart_total_price">59000 تومان</p>
+								</td>
+								<td class="cart_product">
+									<a href=""><img src="images/cart/two.png" alt=""></a>
+								</td>
+								<td class="cart_total">
+									<button type="button" class="btn btn-danger">موجود نیست</button>
+									<button type="button" class="btn btn-danger glyphicon glyphicon-remove"> </button>
+
+								</td>
+
+
+							</tr>
+							</tbody>
+						</table>
+
+
 				</div>
 		</div>
+
 	</section> <!--/#cart_items-->
 
 	
@@ -394,13 +626,24 @@
 		</div>
 		
 	</footer><!--/Footer-->
-	
 
+
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
 
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+
+
+
+<script src="../js/jquery-1.12.2.min.js"></script>
+
+
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
 </body>
 </html>

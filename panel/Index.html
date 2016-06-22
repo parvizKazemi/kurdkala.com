@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>KURD-KALA panel</title>
@@ -14,9 +14,12 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+
+
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -97,131 +100,267 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Dashboard
-            <small>Control panel</small>
+            مدیریت سفارشات
+
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
+            <li><a href="#"><i class="fa fa-dashboard"></i>سفارشات</a></li>
+            <li class="active">داشبورد</li>
           </ol>
         </section>
 
         <!-- Main content -->
         <section class="content">
           <!-- Small boxes (Stat box) -->
-          <div class="row">
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                  <h3>150</h3>
-                  <p>New Orders</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-bag"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-green">
-                <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-                  <p>Bounce Rate</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-yellow">
-                <div class="inner">
-                  <h3>44</h3>
-                  <p>User Registrations</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-3 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-red">
-                <div class="inner">
-                  <h3>65</h3>
-                  <p>Unique Visitors</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-          </div><!-- /.row -->
+
           <!-- Main row -->
           <div class="row">
             <!-- Left col -->
-            <section class="col-lg-7 connectedSortable">
+            <section class="col-lg-12 connectedSortable">
               <!-- Custom tabs (Charts with tabs)-->
               <div class="nav-tabs-custom">
                 <!-- Tabs within a box -->
                 <ul class="nav nav-tabs pull-right">
-                  <li class="active"><a href="#revenue-chart" data-toggle="tab">Area</a></li>
-                  <li><a href="#sales-chart" data-toggle="tab">Donut</a></li>
-                  <li class="pull-left header"><i class="fa fa-inbox"></i> Sales</li>
+                  <li class="active"><a href="#revenue-chart" data-toggle="tab">سفارشات جدید</a></li>
+                  <li ><a href="#PreviousOrders" data-toggle="tab">سفارشات قبلی</a></li>
+                  <li class="pull-left header"><i class="fa fa-inbox"></i> سفارشات </li>
                 </ul>
-                <div class="tab-content no-padding">
-                  <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart" style="position: relative; height: 300px;"></div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-                </div>
-              </div><!-- /.nav-tabs-custom -->
+                <div id="PreviousOrders"  class="tab-content fade " >
+                  <div class="col-md-5">
 
-              
-              
-              <!-- quick email widget -->
-              <div class="box box-info">
-                <div class="box-header">
-                  <i class="fa fa-envelope"></i>
-                  <h3 class="box-title">Quick Email</h3>
-                  <!-- tools box -->
-                  <div class="pull-right box-tools">
-                    <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-                  </div><!-- /. tools -->
-                </div>
-                <div class="box-body">
-                  <form action="#" method="post">
-                    <div class="form-group">
-                      <input type="email" class="form-control" name="emailto" placeholder="Email to:">
+
                     </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="subject" placeholder="Subject">
-                    </div>
-                    <div>
-                      <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                    </div>
-                  </form>
+
+
+
                 </div>
-                <div class="box-footer clearfix">
-                  <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
+
+                <div id="revenue-chart" class="tab-content fade in active no-padding "  >
+                  <!-- Morris chart - Sales -->
+                  <table class="table" id="myTable">
+                    <thead>
+                    <tr>
+                      <th>ردیف</th>
+                      <th>نام سفارش دهنده</th>
+                      <th>تاریخ</th>
+                      <th>شماره شفارش </th>
+                      <th>وضعیت پرداخت</th>
+                      <th>شماره تماس </th>
+                      <th>عضویت </th>
+                      <th>وضعیت</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="clickable-row">
+                      <td>1</td>
+                      <td>معید حیدری</td>
+                      <td>6/3/1395</td>
+                      <td>875698</td>
+                      <td>پرداخت شده</td>
+                      <td>09379030485 </td>
+                      <td>عضو</td>
+                      <td><div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%">
+                          <span class="sr-only">60% Complete</span>
+                        </div>
+                      </div>آماده ارسال</td>
+
+                      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">تغییر وضعیت</button>
+                        <button type="button" class="btn btn-danger">حذف </button></td>
+
+
+
+
+                    </tr>
+                    <tr class="clickable-row">
+                      <td>1</td>
+                      <td>معید حیدری</td>
+                      <td>6/3/1395</td>
+                      <td>875698</td>
+                      <td>پرداخت شده</td>
+                      <td>09379030485 </td>
+                      <td>میهمان</td>
+                      <td><div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                          <span class="sr-only">20% Complete</span>
+                        </div>
+                      </div>تحویل داده شد</td>
+
+                      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal1">تغییر وضعیت</button>
+                        <button type="button" class="btn btn-danger">حذف </button></td>
+                      <div class="modal fade" id="myModal1" role="dialog" style="margin-top: 200px">
+                        <div class="modal-dialog">
+
+                          <!-- Modal content-->
+                          <div class="modal-content">
+
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </tr>
+                    <tr class="clickable-row">
+                      <td>1</td>
+                      <td>معید حیدری</td>
+                      <td>6/3/1395</td>
+                     <td>875698</td>
+                      <td>پرداخت شده</td>
+                      <td>09379030485 </td>
+                      <td>میهمان</td>
+                      <td><div class="progress">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                          <span class="sr-only">20% Complete</span>
+                        </div>
+                      </div>
+                        سفارش داده شده</td>
+
+                      <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal2">تغییر وضعیت</button>
+                        <button type="button" class="btn btn-danger">حذف </button></td>
+                      <div class="modal fade" id="myModal2" role="dialog" style="margin-top: 200px">
+                        <div class="modal-dialog">
+
+                          <!-- Modal content-->
+                          <div class="modal-content">
+
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="col-lg-6 pull-right">
+                    <div class="input-group">
+                      <input type="text"dir="rtl" class="form-control" placeholder="شماره سفارش . . .">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+                    </div><!-- /input-group -->
+                  </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+                  <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                      <!-- Modal content-->
+                      <div class="modal-content">
+
+                        <div class="modal-header">
+                          <h4 class="modal-title" dir="auto" style="margin-right: 20px">معید حیدری</h4>
+
+                          <h4 class="modal-title" dir="auto">23/4/1394</h4>
+
+                          <div class="progress">
+                            <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                              <span class="sr-only">20% Complete</span>
+                            </div>
+                          </div>
+                          <h4 class="modal-title pull-right" dir="auto" style="margin-right: 20px">آماده ارسال</h4>
+                        </div>
+                        <div class="modal-body">
+                          <table class="table" id="myTable">
+                            <thead>
+                            <tr>
+                              <th>ردیف</th>
+
+                              <th>نام محصول</th>
+                              <th>قیمت واحد </th>
+                              <th>تعداد</th>
+                              <th>بن تخفیف</th>
+                              <th>جمع</th>
+
+
+
+                            </tr>
+                            </thead>
+                            <tr>
+
+                            </tr>
+
+                            </tbody>
+                          </table>
+                          <table class="table" id="myTable">
+                            <thead>
+                            <tr>
+
+
+                              <th>جمع مبلغ قابل پرداخت </th>
+                              <th>آدرس</th>
+
+
+
+                            </tr>
+                            </thead>
+                            <tr>
+
+                            </tr>
+
+                            </tbody>
+                          </table>
+
+                          <!-- Single button -->
+                          <form action="index.php" method="post">
+                            <!-- Single button -->
+                            <div class="btn-group " >
+                              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                تغییر وضعیت <span class="caret"></span>
+                              </button>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">بررسی شد</a></li>
+                                <li><a href="#">اماده ارسال به انبار</a></li>
+                                <li><a href="#">اماده ارسال</a></li>
+                                <li><a href="#">ارسال شد</a></li>
+                                <li><a href="#">تحویل داده شد </a></li>
+                              </ul>
+                            </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+                          <button type="button" class="btn btn-success pull-left" data-dismiss="modal">تایید</button>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
                 </div>
-              </div>
+
+
+
+
+              </div><!-- /.nav-tabs-custom -->
+          </section>
+
+
+
+
 
             </section><!-- /.Left col -->
             <!-- right col (We are only adding the ID to make the widgets sortable)-->
-            <section class="col-lg-5 connectedSortable">
 
-              
-
-            
-
-              
-            </section><!-- right col -->
           </div><!-- /.row (main row) -->
 
         </section><!-- /.content -->
@@ -230,18 +369,30 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
-        <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2014-2015 Moeid heidari</a>.</strong> All rights reserved.
       </footer>
 
       <!-- Control Sidebar -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="../js/jquery-1.12.2.min.js"></script>
+      <script src="../js/bootstrap-datepicker.js.js"></script>
+      <script src="../js/jquery.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   
     <script src="bootstrap/js/bootstrap.min.js"></script>
+      <script>
+
+        $('#myTable').on('click', '.clickable-row', function(event) {
+          $(this).addClass('active').siblings().removeClass('active');
+        });
+
+
+
+      </script>
+
     
 
   </body>

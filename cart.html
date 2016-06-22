@@ -102,7 +102,7 @@
 			<div class="row" >
 				<div class="col-sm-4">
 					<div class="logo pull-left">
-						<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+						<a href="panel/index.php"><img src="images/home/logo.png" alt="" /></a>
 					</div>
 					<div class="btn-group pull-left">
 						<div class="btn-group" style="margin-top: 5px">
@@ -139,7 +139,7 @@
 								</ul>
 
 							</li>
-							<li><a href="index.html" class="active" >خانه</a></li>
+							<li><a href="panel/index.php" class="active" >خانه</a></li>
 						</ul>
 						<ul class="nav navbar-nav">
 							<li><a href="#"><i class="fa fa-user"></i> حساب</a></li>
@@ -190,7 +190,7 @@
 
 		<ul class="nav nav-tabs">
 			<li class="active"><a data-toggle="tab" href="#home">سبد خرید</a></li>
-			<li><a data-toggle="tab" href="#menu1">پیگیری سفارش</a></li>
+
 
 		</ul>
 
@@ -207,7 +207,9 @@
 							<td class="price">قیمت</td>
 							<td class="quantity">تعداد</td>
 							<td class="total">مجموع</td>
+							<td class="total">بن تخفیف</td>
 							<td></td>
+
 						</tr>
 						</thead>
 						<tbody>
@@ -231,6 +233,21 @@
 							</td>
 							<td class="cart_total">
 								<p class="cart_total_price">59000 تومان</p>
+							</td>
+							<td class="cart_total">
+								<!-- Split button -->
+								<div class="btn-group">
+									<button type="button" class="btn btn-default">انتخاب بن</button>
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span class="caret"></span>
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="#">10%</a></li>
+										<li><a href="#">20%</a></li>
+
+									</ul>
+								</div>
 							</td>
 							<td class="cart_delete" >
 								<button type="button" class="btn btn-danger" id="deletButton1">حذف</button>
@@ -258,6 +275,21 @@
 							<td class="cart_total">
 								<p class="cart_total_price">23000 تومان</p>
 							</td>
+							<td class="cart_total">
+								<!-- Split button -->
+								<div class="btn-group">
+									<button type="button" class="btn btn-default">انتخاب بن</button>
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span class="caret"></span>
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="#">10%</a></li>
+										<li><a href="#">20%</a></li>
+
+									</ul>
+								</div>
+							</td>
 							<td class="cart_delete">
 								<button type="button" class="btn btn-danger" id="deletButton2">حذف</button>
 							</td>
@@ -283,6 +315,22 @@
 							<td class="cart_total">
 								<p class="cart_total_price">78000 تومان</p>
 							</td>
+							<td class="cart_total">
+								<!-- Split button -->
+								<div class="btn-group">
+									<button type="button" class="btn btn-default">انتخاب بن</button>
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span class="caret"></span>
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="#">10%</a></li>
+										<li><a href="#">20%</a></li>
+
+									</ul>
+								</div>
+							</td>
+
 							<td class="cart_delete">
 								<button type="button" class="btn btn-danger" id="deletButton3">حذف</button>
 							</td>
@@ -293,8 +341,8 @@
 						<thead>
 						<tr>
 
-							<th>مبلغ بدون کسر مالیات</th>
-							<th>کل مبلغ با کسر مالیات</th>
+
+							<th>مبلغ کل با تخفیف</th>
 							<th>کل مبلغ قابل پرداخت</th>
 						</tr>
 						</thead>
@@ -303,7 +351,7 @@
 
 							<td dir="auto">0.0</td>
 							<td dir="auto">0.0</td>
-							<td dir="auto">0.0</td>
+
 
 						</tr>
 						</tbody>
@@ -341,103 +389,7 @@
 
 
 			</div>
-			<div id="menu1" class="tab-pane fade">
-				<div class="table-responsive cart_info">
-					<table class="table table-condensed">
-						<thead>
-						<tr class="cart_menu">
-							<td class="image">کالا</td>
-							<td class="description"></td>
-							<td class="price">قیمت</td>
-							<td class="quantity">تعداد</td>
-							<td class="total">وضعیت</td>
-							<td></td>
-						</tr>
-						</thead>
-						<tbody>
-						<tr id="item">
-							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">کیف دستی</a></h4>
-								<p>شماره کالا: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>59000 تومان</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<h>0</h>
-								</div>
-							</td>
-							<td class="cart_total">
-								<h >در حال ارسال</h>
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-										60%
-									</div>
-								</div>
-							</td>
 
-						</tr>
-
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/two.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">رنگ مو زنانه</a></h4>
-								<p>شماره کالا: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>23000 تومان</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<h>0</h>
-								</div>
-							</td>
-							<td class="cart_total">
-								<h >ارسال شد</h>
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-										60%
-									</div>
-								</div>
-							</td>
-
-						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/three.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">لباس مجلسی زنانه</a></h4>
-								<p>شماره کالا: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>78000 تومان</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<h>0</h>
-								</div>
-							</td>
-							<td class="cart_total">
-								<h >در حال ارسال</h>
-								<div class="progress">
-									<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-										60%
-									</div>
-								</div>
-							</td>
-
-						</tr>
-						</tbody>
-					</table>
-				</div>
-			</div>
 			<div id="menu2" class="tab-pane fade">
 				<h3>Menu 2</h3>
 				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>

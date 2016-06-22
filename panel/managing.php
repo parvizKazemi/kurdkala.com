@@ -1,5 +1,5 @@
 <?php
-    require_once "../utilities/checkLogin.php";
+
     require_once "../DBEntities/GroupService.php";
     require_once "../DBEntities/DetailNameService.php";
     require_once "../DBEntities/GroupDetailService.php";
@@ -27,6 +27,7 @@ function saveDetail($detail)
         $detId=$det->getId();
     return $detId;
 }
+
 
 /**
  * @param $detId

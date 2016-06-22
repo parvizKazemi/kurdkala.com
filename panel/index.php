@@ -1,53 +1,66 @@
+<?php
+session_start();
+require_once "../DBEntities/GroupService.php";
+require_once "../DBEntities/DetailNameService.php";
+require_once "../DBEntities/GroupDetailService.php";
+require_once "../utilities/TableNames.php";
+
+$group=new GroupService(\utilities\TableNames::$Group);
+$groups=$group->getByProperties(array());
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>KURD-KALA</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prettyPhoto.css" rel="stylesheet">
-    <link href="css/price-range.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <![endif]-->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prettyPhoto.css" rel="stylesheet">
+    <link href="../css/price-range.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../engine1/style.css" />
+    <script type="text/javascript" src="../engine1/jquery.js"></script>
+
+  
 
 </head>
 <body>
 <header id="header"><!--header-->
-    <div class="header_top"><!--header_top-->
-
-        <div class="container">
-
-            <div class="row" style="margin-bottom: 10px">
-
-                <div class="col-sm-6">
-                    <div class="contactinfo">
-                        <ul class="nav nav-pills pull-left">
-                            <li><a href="#"><i class="fa fa-phone"></i> +989188721076</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> Moeidheidari@hotmail.com</a></li>
-                            <div class="col-sm-3">
-                                <div id="imaginary_container" style="margin-top: 5px" >
-                                    <div class="input-group stylish-input-group" >
-                                        <input type="text" class="form-control"  placeholder="جستجو ..." style="width:300px" dir="rtl">
-                    <span class="input-group-addon">
-                        <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                                    </div>
-                                </div>
-                            </div>
+    
+<div class="header_top"><!--header_top-->
 
 
-                        </ul>
+        <div class="row" style="background-color:#585656">
+       
+            <dvi class="col-sm-4">
+               <ul class="nav nav-pills pull-right" >
+                            <li><a href="#" style="color:white"><i class="fa fa-phone" ></i> +989188721076</a></li>
+                            <li><a href="#" style="color:white"><i class="fa fa-envelope"></i> Moeidheidari@hotmail.com</a></li>
 
-                    </div>
-                </div>
+                            </ul>
 
-                <div class="col-sm-6">
+            </dvi>
+              
+              
+        <div class="col-sm-2">
+         <ul class="nav nav-pills pull-right" >
+             <li><a href="#" style="color:white">  خوش آمدید    </a>
+
+<li><a href="#" style="color:white">  سلام ! ناشناس  <i class="fa fa-user" ></i></a>
+
+         </ul>
+
+        </div>
+        
+        <div class="col-sm-3 col-md-3 ">
+
+        </div>
+        <div class="col-sm-2" >
                     <div class="social-icons pull-right">
                         <ul class="nav navbar-nav">
 
@@ -60,78 +73,100 @@
 
 
 
+
                         </ul>
                     </div>
                 </div>
+             
+           
+
             </div>
+            
+
+            
         </div>
     </div><!--/header_top-->
-
     <div class="header-middle"><!--header-middle-->
-        <div class="container">
-            <div class="row" >
-                <div class="col-sm-4">
-                    <div class="logo pull-left">
-                        <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+        <div class="header-middle"><!--header-middle-->
+            <div class="container">
+                <div class="row" >
+                    <div class="col-sm-4">
+                        <div class="logo pull-left">
+                            <a href="index.php"><img src="../images/home/logo.png" alt="" /></a>
+                        </div>
+                        <div class="btn-group pull-left">
+                            <div class="btn-group" style="margin-top: 5px">
+                                <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
+                                    زبان
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">ENG</a></li>
+                                    <li><a href="#">FA</a></li>
+                                </ul>
+                            </div>
+
+
+                        </div>
                     </div>
-                    <div class="btn-group pull-left">
-                        <div class="btn-group" style="margin-top: 5px">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                زبان
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">ENG</a></li>
-                                <li><a href="#">FA</a></li>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <ul class="nav navbar-nav collapse navbar-collapse" >
+
+
+                                <li><a href="../ShopingTutorial.html" c>راهنمای خرید</a></li>
+
+
+                                <li><a href="404.html">درباره ما</a></li>
+                                <li><a href="contact-us.html">ارتباط با ما</a></li>
+
+                                <li class="dropdown"><a href="#">خرید<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="shop.html">کالاها</a></li>
+                                        <li><a href="../product-details.html">جزیزات کالاها</a></li>
+                                        <li><a href="../checkout.html">سفارش کالا</a></li>
+                                        <li><a href="../checkout.html">خرید عمده ا</a></li>
+                                    </ul>
+
+                                </li>
+                                <li><a href="index.php" class="active" >خانه</a></li>
                             </ul>
+                            <ul class="nav navbar-nav">
+                                <li><a href="#"><i class="fa fa-user"></i> حساب</a></li>
+
+
+
+                                <li><a href="login.html"><i class="fa fa-lock"></i> ورود</a></li>
+                            </ul>
+                            <a href="../cart.html" type="button" class="btn btn-success btn-lg" style="margin-left: 20px" >
+                                <span class="glyphicon glyphicon-shopping-cart"></span> سبد خرید
+                                <span class="badge badge-notify">3</span>
+
+                            </a>
+
+
                         </div>
 
-
-                    </div>
-                </div>
-                <div class="col-sm-8">
-                    <div class="shop-menu pull-right">
-                        <ul class="nav navbar-nav collapse navbar-collapse" >
-
-
-                            <li><a href="ShopingTutorial.html" c>راهنمای خرید</a></li>
-
-
-                            <li><a href="404.html">درباره ما</a></li>
-                            <li><a href="contact-us.html">ارتباط با ما</a></li>
-
-                            <li class="dropdown"><a href="#">خرید<i class="fa fa-angle-down"></i></a>
-                                <ul role="menu" class="sub-menu">
-                                    <li><a href="shop.html">کالاها</a></li>
-                                    <li><a href="product-details.html">جزیزات کالاها</a></li>
-                                    <li><a href="checkout.html">سفارش کالا</a></li>
-                                    <li><a href="checkout.html">خرید عمده ا</a></li>
-                                </ul>
-
-                            </li>
-                            <li><a href="index.html" class="active" >خانه</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav">
-                            <li><a href="checkout.html"><i class="fa fa-user"></i> حساب</a></li>
-
-
-
-                            <li><a href="login.html"><i class="fa fa-lock"></i> ورود</a></li>
-                        </ul>
-                        <a href="cart.html" type="button" class="btn btn-success btn-lg" style="margin-left: 20px" >
-                            <span class="glyphicon glyphicon-shopping-cart"></span> سبد خرید
-                            <span class="badge badge-notify">3</span>
-
-                        </a>
                     </div>
 
                 </div>
-
             </div>
-        </div>
-    </div><!--/header-middle-->
+            <div class="col-sm-1 col-md-4 ">
+                </div>
+            <div class="col-sm-1 col-md-4 " style="margin-top: 25px">
+                <form class="navbar-form" role="search" >
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="جستجوی کالا . . ." name="q" dir="rtl">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!--/header-middle-->
 
-    <div class="header-bottom" ><!--header-bottom-->
+
+        <div class="header-bottom" ><!--header-bottom-->
         <div class="container">
             <div class="row" >
                 <div class="col-sm-9" >
@@ -161,64 +196,26 @@
 
             <div class="col-sm-12">
 
-                <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#slider-carousel" data-slide-to="1"></li>
-                        <li data-target="#slider-carousel" data-slide-to="2"></li>
-                    </ol>
+   <!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
+    <div id="wowslider-container1">
+    <div class="ws_images"><ul>
+        <li><a href="http://wowslider.com"><img src="../data1/images/edge.png" alt="bootstrap slider" title="edge" id="wows1_0"/></a></li>
+        <li><img src="../data1/images/banner1.jpg" alt="banner1" title="banner1" id="wows1_1"/></li>
+        <li><a href="http://wowslider.com"><img src="../data1/images/banner2.png" alt="bootstrap slider" title="edge" id="wows1_0"/></a></li>
+        <li><img src="../data1/images/banner3.png" alt="banner1" title="banner1" id="wows1_1"/></li>
+    </ul></div>
+    <div class="ws_bullets"><div>
+        <a href="#" title="edge"><span><img src="../data1/tooltips/edge.png" alt="edge"/>1</span></a>
+        <a href="#" title="banner1"><span><img src="../data1/tooltips/banner1.jpg" alt="banner1"/>2</span></a>
+        <a href="#" title="edge"><span><img src="data1/tooltips/banner2.png" alt="edge"/>3</span></a>
+        <a href="#" title="banner1"><span><img src="data1/tooltips/banner3.png" alt="banner1"/>4</span></a>
+    </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com">wow slider</a> by WOWSlider.com v8.7</div>
+    <div class="ws_shadow"></div>
+    </div>  
+   
+    <!-- End WOWSlider.com BODY section -->
 
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <div class="col-sm-6" dir="rtl">
-                                <h1><span>KURD</span>-KALA</h1>
-                                <p>فروشگاه آنلاین </p>
-                                <p>فروش ویژه عید محصولات ساسونگ.
-                                    تلویزیون های خمیده</p>
 
-                                <button type="button" class="btn btn-default get">سفارش</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="col-sm-6" dir="rtl">
-                                <h1><span>KURD</span>-KALA</h1>
-                                <p>فروشگاه آنلاین </p>
-                                <p>توضیحات مربوط به این کالا </p>
-                                <button type="button" class="btn btn-default get"><?php echo "moeid jan";?></button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="images/home/girl2.png" class="girl img-responsive" alt="" />
-                                <img src="images/home/pricing.png"  class="pricing" alt="" />
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            <div class="col-sm-6" dir="rtl">
-                                <h1><span>KURD</span>-KALA</h1>
-                                <p>فروشگاه آنلاین </p>
-                                <p>توضیحات مربوط به این کالا </p>
-                                <button type="button" class="btn btn-default get">سفارش</button>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="images/home/girl3.png" class="girl img-responsive" alt="" />
-
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                    <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-
-                </div>
 
             </div>
 
@@ -236,135 +233,42 @@
                 <div class="left-sidebar">
                     <h2>گروه ها</h2>
                     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                        <div class="panel panel-default">
+<?php
+                        foreach($groups as $gp1)
+                        {
+                            $currentParentId=$gp1->getId();
+                        if($gp1->getParentId()==0) {
+                            echo '<div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#item' . $gp1->getId() . '">
                                         <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        کالای دیجیتال
+                                        ' . $gp1->getName() . '
                                     </a>
                                 </h4>
                             </div>
-                            <div id="sportswear" class="panel-collapse collapse">
+                            <div id="item' . $gp1->getId() . '" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">یخچال</a></li>
-                                        <li><a href="#">گاز خوراکپزی</a></li>
-                                        <li><a href="#">تلویزیون</a></li>
-                                        <li><a href="#">فرش</a></li>
-                                        <li><a href="#">کمد</a></li>
-                                        <li><a href="#">مبل</a></li>
+                                    <ul>';
+
+
+                            foreach ($groups as $gp2) {
+                                if ($gp2->getParentId() == $currentParentId) {
+                                    echo '<li><a href="#">' . $gp2->getName() . '</a></li>';
+                                }
+                            }
+                            echo '
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#mens">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        لوازم خانگی
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="mens" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">یخچال</a></li>
-                                        <li><a href="#">گاز خوراکپزی</a></li>
-                                        <li><a href="#">تلویزیون</a></li>
-                                        <li><a href="#">فرش</a></li>
-                                        <li><a href="#">کمد</a></li>
-                                        <li><a href="#">مبل</a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
+                        </div>';
+                        }
+                        }
+?>
                         </div>
 
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#womens">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        زیبایی و سلامت
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="womens" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">Fendi</a></li>
-                                        <li><a href="#">Guess</a></li>
-                                        <li><a href="#">Valentino</a></li>
-                                        <li><a href="#">Dior</a></li>
-                                        <li><a href="#">Versace</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#farhangVaHonar">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        فرهنگ و هنر
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="farhangVaHonar" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">لوازم التحریر</a></li>
-                                        <li><a href="#">کتاب</a></li>
-                                        <li><a href="#">مجله</a></li>
 
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#varzeshVaSargarmi">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        ورزش و سرگرمی
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="varzeshVaSargarmi" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">لوازم التحریر</a></li>
-                                        <li><a href="#">کتاب</a></li>
-                                        <li><a href="#">مجله</a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordian" href="#madarVaKoodak">
-                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                        مادر و کودک
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="madarVaKoodak" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li><a href="#">لوازم التحریر</a></li>
-                                        <li><a href="#">کتاب</a></li>
-                                        <li><a href="#">مجله</a></li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div><!--/category-products-->
+<!--/category-products-->
 
                     <div class="brands_products"><!--brands_products-->
                         <h2>برند ها</h2>
@@ -389,10 +293,10 @@
                     </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
-                        <img src="images/home/shipping.jpg" alt="" />
+                        <img src="../images/home/shipping.jpg" alt="" />
                     </div><!--/shipping-->
                     <div class="shipping text-center"><!--shipping-->
-                        <img src="images/home/shipping.jpg" alt="" />
+                        <img src="../images/home/shipping.jpg" alt="" />
                     </div><!--/shipping-->
 
                 </div>
@@ -405,7 +309,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="images/home/product1.jpg" alt="" />
+                                    <img src="../images/home/product1.jpg" alt="" />
                                     <h2>20000 تومان</h2>
                                     <p>مانتو</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -430,7 +334,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="images/home/product2.jpg" alt="" />
+                                    <img src="../images/home/product2.jpg" alt="" />
                                     <h2>115000 تومان</h2>
                                     <p>عینک</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -455,7 +359,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="images/home/product3.jpg" alt="" />
+                                    <img src="../images/home/product3.jpg" alt="" />
                                     <h2>45000 تومتن</h2>
                                     <p>لباس زنانه</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -485,7 +389,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="images/home/product1.jpg" alt="" />
+                                    <img src="../images/home/product1.jpg" alt="" />
                                     <h2>20000 تومان</h2>
                                     <p>مانتو</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -510,7 +414,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="images/home/product2.jpg" alt="" />
+                                    <img src="../images/home/product2.jpg" alt="" />
                                     <h2>115000 تومان</h2>
                                     <p>عینک</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -535,7 +439,7 @@
                         <div class="product-image-wrapper">
                             <div class="single-products">
                                 <div class="productinfo text-center">
-                                    <img src="images/home/product3.jpg" alt="" />
+                                    <img src="../images/home/product3.jpg" alt="" />
                                     <h2>45000 تومتن</h2>
                                     <p>لباس زنانه</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -575,7 +479,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <img src="../images/home/gallery1.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -588,7 +492,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <img src="../images/home/gallery2.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -601,7 +505,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <img src="../images/home/gallery3.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -614,7 +518,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <img src="../images/home/gallery4.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -630,7 +534,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <img src="../images/home/gallery4.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -643,7 +547,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <img src="../images/home/gallery3.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -656,7 +560,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <img src="../images/home/gallery2.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -669,7 +573,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <img src="../images/home/gallery1.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -685,7 +589,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <img src="../images/home/gallery3.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -698,7 +602,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <img src="../images/home/gallery4.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -711,7 +615,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <img src="../images/home/gallery1.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -724,7 +628,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <img src="../images/home/gallery2.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -740,7 +644,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <img src="../images/home/gallery1.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -753,7 +657,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <img src="../images/home/gallery2.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -766,7 +670,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <img src="../images/home/gallery3.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -779,7 +683,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <img src="../images/home/gallery4.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -795,7 +699,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery2.jpg" alt="" />
+                                            <img src="../images/home/gallery2.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -808,7 +712,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery4.jpg" alt="" />
+                                            <img src="../images/home/gallery4.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -821,7 +725,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery3.jpg" alt="" />
+                                            <img src="../images/home/gallery3.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -834,7 +738,7 @@
                                 <div class="product-image-wrapper">
                                     <div class="single-products">
                                         <div class="productinfo text-center">
-                                            <img src="images/home/gallery1.jpg" alt="" />
+                                            <img src="../images/home/gallery1.jpg" alt="" />
                                             <h2>$56</h2>
                                             <p>Easy Polo Black Edition</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -857,7 +761,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt="" />
+                                                <img src="../images/home/recommend1.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -870,7 +774,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt="" />
+                                                <img src="../images/home/recommend2.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -883,7 +787,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt="" />
+                                                <img src="../images/home/recommend3.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -898,7 +802,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt="" />
+                                                <img src="../images/home/recommend1.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -911,7 +815,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt="" />
+                                                <img src="../images/home/recommend2.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -924,7 +828,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt="" />
+                                                <img src="../images/home/recommend3.jpg" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>خرید</a>
@@ -947,33 +851,8 @@
             </div>
         </div>
     </div>
-    <div class="row" style=" background: rgba(51, 204, 255, 1);
 
 
-  height: 50px;
-  font-weight: bold;
-  font-size: 1.2em;
-  box-shadow: 0 0px 7px rgba(0, 0, 0, 0.4);
-  width: auto;
-  margin:0 auto;
-  margin-bottom: 20px" dir="rtl">
-
-        <div class="col-sm-3" style="color: white;margin-top: 10px" dir="rtl" >
-            40979868780
-        </div>
-        <div class="col-sm-3 glyphicon glyphicon-envelope" style="color: white;margin-top: 10px" dir="rtl" >
-            moeidheidari@hotmail.com
-        </div>
-        <div class="col-sm-3 glyphicon glyphicon-earphone" style="color: white;margin-top: 10px " dir="rtl" >
-           09379030485
-        </div>
-        <div class="col-sm-3" style="color: white;margin-top: 10px" dir="rtl" >
-            ۷ روز هفته، ۲۴ ساعته پاسخگوی شما هستیم.
-        </div>
-
-
-
-    </div>
 </section>
 <footer id="footer"><!--Footer-->
     <div class="footer-top">
@@ -994,7 +873,7 @@
 
                 <div class="col-sm-3">
                     <div class="address">
-                        <img src="images/home/map.png" alt="" />
+                        <img src="../images/home/map.png" alt="" />
                         <p>سنندج - میدان اقبال - فروشگاه آینده سازان</p>
                     </div>
                 </div>
@@ -1071,14 +950,19 @@
     </div>
 </footer><!--/Footer-->
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.scrollUp.min.js"></script>
-<script src="js/price-range.js"></script>
-<script src="js/jquery.prettyPhoto.js"></script>
-<script src="js/main.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.scrollUp.min.js"></script>
+<script src="../js/price-range.js"></script>
+<script src="../js/jquery.prettyPhoto.js"></script>
+<script src="../js/main.js"></script>
+<script type="text/javascript" src="../engine1/wowslider.js"></script>
+<script type="text/javascript" src="../engine1/script.js"></script>
+
+<script>
 
 
+</script>
 
 
 

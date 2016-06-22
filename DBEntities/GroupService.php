@@ -34,8 +34,10 @@ class GroupService extends BaseEntity implements IGroupService
      */
     public function getName()
     {
+
         return $this->name;
     }
+
 
     /**
      * @param mixed $name
